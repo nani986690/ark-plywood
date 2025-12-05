@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery - Arka Plywood & Hardware</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* BACK BUTTON */
+      .back-button {
+        display: inline-block;
+        padding: 0.75rem 1.5rem;
+        background: #0b63ff;
+        color: white;
+        text-decoration: none;
+        border-radius: 8px;
+        font-weight: 600;
+        transition: all 0.3s ease;
+        margin: 1.5rem;
+        margin-bottom: 2rem;
+      }
+
+      .back-button:hover {
+        background: #0a4fa6;
+        transform: translateX(-4px);
+      }
+
+      #gallery-section {
+        background-color: inherit;
+        padding: 2rem 0;
+      }
+
+      .top {
+        display: flex;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+        gap: 0;
+      }
+
+      .top ul {
+        list-style: none;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+      }
+
+      .top ul li {
+        position: relative;
+        width: 25%;
+        aspect-ratio: 1;
+        overflow: hidden;
+        box-sizing: border-box;
+      }
+
+      .top ul li::before {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.4);
+        content: "";
+        opacity: 0.4;
+        z-index: 2;
+        pointer-events: none;
+        transition: all 0.5s ease;
+      }
+
+      .top ul li:hover::before {
+        opacity: 0;
+        background-color: rgba(0, 0, 0, 0);
+      }
+
+      .top ul li img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+        transition: transform 0.3s ease;
+        display: block;
+      }
+
+      .top ul li:hover img {
+        transform: scale(1.05);
+      }
+
+      .top ul li a {
+        display: block;
+        width: 100%;
+        height: 100%;
+      }
+
+      .lightbox {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        top: 0;
+        left: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        z-index: 999;
+        opacity: 0;
+        pointer-events: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transition: all 1.2s ease;
+      }
+
+      .lightbox img {
+        max-width: 90%;
+        max-height: 85%;
+        position: relative;
+        top: -100%;
+        transition: all 1s ease;
+        object-fit: contain;
+      }
+
+      .lightbox:target {
+        outline: none;
+        top: 0;
+        opacity: 1;
+        pointer-events: auto;
+      }
+
+      .lightbox:target img {
+        top: 0;
+      }
+
+      /* Mobile: 2x4 grid */
+      @media (max-width: 768px) {
+        .top ul li {
+          width: 50%;
+        }
+
+        #gallery-section h2 {
+          font-size: 1.6rem;
+          margin-bottom: 2rem;
+        }
+
+        .lightbox img {
+          max-width: 95%;
+          max-height: 80%;
+        }
+      }
+
+      /* Tablets: 3 columns */
+      @media (min-width: 769px) and (max-width: 991px) {
+        .top ul li {
+          width: 33.333%;
+        }
+      }
+
+      /* Large Screens: 4 columns */
+      @media (min-width: 992px) {
+        .top ul li {
+          width: 25%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- FLOATING BUTTONS -->
+    <a
+      id="whatsappBtn"
+      class="float-btn"
+      href="https://wa.me/093906 20043"
+      target="_blank"
+    >
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+      />
+    </a>
+
+    <a id="callBtn" class="float-btn" href="tel:93906 20043">
+      <img src="https://cdn-icons-png.flaticon.com/512/724/724664.png" />
+    </a>
+
+    <!-- BACK BUTTON -->
+    <a href="index.html" class="back-button">← Back to Home</a>
+
+    <!-- GALLERY SECTION -->
+    <section id="gallery-section" class="container-fluid">
+      <div class="container">
+        <h2 class="section-title">Gallery</h2>
+        <div class="top" id="galleryContainer">
+          <ul id="thumbnailsList">
+            <!-- Thumbnails will be dynamically loaded here -->
+          </ul>
+          <!-- Lightbox images will be dynamically loaded here -->
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+      <div class="footer-container">
+        <div class="footer-section">
+          <h3>Arka Plywood & Hardware</h3>
+          <p>
+            Your trusted supplier for plywood, laminates, hardware, and interior
+            materials.
+          </p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="./index.html#hero">Home</a></li>
+            <li><a href="./index.html#">About Us</a></li>
+            <li><a href="./index.html#services">Products&Services</a></li>
+            <li><a href="./index.html#brands">Brands</a></li>
+            <li><a href="./index.html#contact">Contact</a></li>
+            <li><a href="./index.html#-md">About MD</a></li>
+          </ul>
+        </div>
+
+        <div class="footer-section">
+          <h4>Contact</h4>
+          <p><b>Phone:</b> 093906 20043</p>
+          <p><b>Email:</b> info@arkaplywood.in</p>
+          <p><b>Location:</b> Pedapadu, Srikakulam, Andhra Pradesh</p>
+        </div>
+
+        <div class="footer-section">
+          <h4>Follow Us</h4>
+          <div class="social-icons">
+            <a href="https://www.facebook.com/share/17P6AQ8Xtv/" target="_blank"
+              ><img
+                src="data:image/svg+xml,%3Csvg viewBox='0 0 266.895 266.895' xmlns='http://www.w3.org/2000/svg' fill='%23000000'%3E%3Cpath d='M252.164 266.895c8.134 0 14.729-6.596 14.729-14.73V14.73c0-8.137-6.596-14.73-14.729-14.73H14.73C6.593 0 0 6.594 0 14.73v237.434c0 8.135 6.593 14.73 14.73 14.73h237.434z' fill='%23485a96'%3E%3C/path%3E%3Cpath d='M184.152 266.895V163.539h34.692l5.194-40.28h-39.887V97.542c0-11.662 3.238-19.609 19.962-19.609l21.329-.01V41.897c-3.689-.49-16.351-1.587-31.08-1.587-30.753 0-51.807 18.771-51.807 53.244v29.705h-34.781v40.28h34.781v103.355h41.597z' fill='%23ffffff'%3E%3C/path%3E%3C/svg%3E"
+            /></a>
+            <a
+              href="https://www.instagram.com/arka_plywood?igsh=bDF6YmZmNWtxNWp3"
+              target="_blank"
+              ><img
+                style="width: 44px; height: 44px"
+                src="data:image/svg+xml,%3Csvg viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect x='2' y='2' width='28' height='28' rx='6' fill='url(%23paint0_radial_87_7153)'%3E%3C/rect%3E%3Crect x='2' y='2' width='28' height='28' rx='6' fill='url(%23paint1_radial_87_7153)'%3E%3C/rect%3E%3Crect x='2' y='2' width='28' height='28' rx='6' fill='url(%23paint2_radial_87_7153)'%3E%3C/rect%3E%3Cpath d='M23 10.5C23 11.3284 22.3284 12 21.5 12C20.6716 12 20 11.3284 20 10.5C20 9.67157 20.6716 9 21.5 9C22.3284 9 23 9.67157 23 10.5Z' fill='white'%3E%3C/path%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M16 21C18.7614 21 21 18.7614 21 16C21 13.2386 18.7614 11 16 11C13.2386 11 11 13.2386 11 16C11 18.7614 13.2386 21 16 21ZM16 19C17.6569 19 19 17.6569 19 16C19 14.3431 17.6569 13 16 13C14.3431 13 13 14.3431 13 16C13 17.6569 14.3431 19 16 19Z' fill='white'%3E%3C/path%3E%3Cpath fill-rule='evenodd' clip-rule='evenodd' d='M6 15.6C6 12.2397 6 10.5595 6.65396 9.27606C7.2292 8.14708 8.14708 7.2292 9.27606 6.65396C10.5595 6 12.2397 6 15.6 6H16.4C19.7603 6 21.4405 6 22.7239 6.65396C23.8529 7.2292 24.7708 8.14708 25.346 9.27606C26 10.5595 26 12.2397 26 15.6V16.4C26 19.7603 26 21.4405 25.346 22.7239C24.7708 23.8529 23.8529 24.7708 22.7239 25.346C21.4405 26 19.7603 26 16.4 26H15.6C12.2397 26 10.5595 26 9.27606 25.346C8.14708 24.7708 7.2292 23.8529 6.65396 22.7239C6 21.4405 6 19.7603 6 16.4V15.6ZM15.6 8H16.4C18.1132 8 19.2777 8.00156 20.1779 8.0751C21.0548 8.14674 21.5032 8.27659 21.816 8.43597C22.5686 8.81947 23.1805 9.43139 23.564 10.184C23.7234 10.4968 23.8533 10.9452 23.9249 11.8221C23.9984 12.7223 24 13.8868 24 15.6V16.4C24 18.1132 23.9984 19.2777 23.9249 20.1779C23.8533 21.0548 23.7234 21.5032 23.564 21.816C23.1805 22.5686 22.5686 23.1805 21.816 23.564C21.5032 23.7234 21.0548 23.8533 20.1779 23.9249C19.2777 23.9984 18.1132 24 16.4 24H15.6C13.8868 24 12.7223 23.9984 11.8221 23.9249C10.9452 23.8533 10.4968 23.7234 10.184 23.564C9.43139 23.1805 8.81947 22.5686 8.43597 21.816C8.27659 21.5032 8.14674 21.0548 8.0751 20.1779C8.00156 19.2777 8 18.1132 8 16.4V15.6C8 13.8868 8.00156 12.7223 8.0751 11.8221C8.14674 10.9452 8.27659 10.4968 8.43597 10.184C8.81947 9.43139 9.43139 8.81947 10.184 8.43597C10.4968 8.27659 10.9452 8.14674 11.8221 8.0751C12.7223 8.00156 13.8868 8 15.6 8Z' fill='white'%3E%3C/path%3E%3Cdefs%3E%3CradialGradient id='paint0_radial_87_7153' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(12 23) rotate(-55.3758) scale(25.5196)'%3E%3Cstop stop-color='%23B13589'%3E%3C/stop%3E%3Cstop offset='0.79309' stop-color='%23C62F94'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%238A3AC8'%3E%3C/stop%3E%3C/radialGradient%3E%3CradialGradient id='paint1_radial_87_7153' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(11 31) rotate(-65.1363) scale(22.5942)'%3E%3Cstop stop-color='%23E0E8B7'%3E%3C/stop%3E%3Cstop offset='0.444662' stop-color='%23FB8A2E'%3E%3C/stop%3E%3Cstop offset='0.71474' stop-color='%23E2425C'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%23E2425C' stop-opacity='0'%3E%3C/stop%3E%3C/radialGradient%3E%3CradialGradient id='paint2_radial_87_7153' cx='0' cy='0' r='1' gradientUnits='userSpaceOnUse' gradientTransform='translate(0.500002 3) rotate(-8.1301) scale(38.8909 8.31836)'%3E%3Cstop offset='0.156701' stop-color='%23406ADC'%3E%3C/stop%3E%3Cstop offset='0.467799' stop-color='%236A45BE'%3E%3C/stop%3E%3Cstop offset='1' stop-color='%236A45BE' stop-opacity='0'%3E%3C/stop%3E%3C/radialGradient%3E%3C/defs%3E%3C/svg%3E"
+            /></a>
+            <a href="#" target="_blank"
+              ><img
+                style="width: 44px; height: 44px"
+                src="data:image/svg+xml,%3Csvg viewBox='0 -7 48 48' version='1.1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' fill='%23000000'%3E%3Ctitle%3EYoutube-color%3C/title%3E%3Cg id='Icons' stroke='none' stroke-width='1' fill='none' fill-rule='evenodd'%3E%3Cg id='Color-' transform='translate(-200.000000, -368.000000)' fill='%23CE1312'%3E%3Cpath d='M219.044,391.269916 L219.0425,377.687742 L232.0115,384.502244 L219.044,391.269916 Z M247.52,375.334163 C247.52,375.334163 247.0505,372.003199 245.612,370.536366 C243.7865,368.610299 241.7405,368.601235 240.803,368.489448 C234.086,368 224.0105,368 224.0105,368 L223.9895,368 C223.9895,368 213.914,368 207.197,368.489448 C206.258,368.601235 204.2135,368.610299 202.3865,370.536366 C200.948,372.003199 200.48,375.334163 200.48,375.334163 C200.48,375.334163 200,379.246723 200,383.157773 L200,386.82561 C200,390.73817 200.48,394.64922 200.48,394.64922 C200.48,394.64922 200.948,397.980184 202.3865,399.447016 C204.2135,401.373084 206.612,401.312658 207.68,401.513574 C211.52,401.885191 224,402 224,402 C224,402 234.086,401.984894 240.803,401.495446 C241.7405,401.382148 243.7865,401.373084 245.612,399.447016 C247.0505,397.980184 247.52,394.64922 247.52,394.64922 C247.52,394.64922 248,390.73817 248,386.82561 L248,383.157773 C248,379.246723 247.52,375.334163 247.52,375.334163 L247.52,375.334163 Z'%3E%3C/path%3E%3C/g%3E%3C/g%3E%3C/svg%3E"
+            /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        © <span id="year">2025</span> Arka Plywood & Hardware. All rights
+        reserved. <br />
+        <span style="font-size: small; color: rgba(0, 0, 0, 0.363)"
+          >Designed and Developed By
+          <a
+            style="text-decoration: underline"
+            href="https://nivinex.vercel.app/"
+            >Nivinex Team</a
+          ></span
+        >
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+      // GALLERY IMAGE ARRAY - Add your image links here
+      const galleryImages = [
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607426_y.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607427_x.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607428_x.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607429_y.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607430_y.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607432_x.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607433_y.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607434_y.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607435_x.jpg",
+        "https://cdn.jsdelivr.net/gh/nani986690/arka-pics@main/gallery/photo_6165866475210607436_x.jpg",
+      ];
+
+      // Function to populate gallery with lightbox
+      function loadGallery(images) {
+        const thumbnailsList = document.getElementById("thumbnailsList");
+        const galleryContainer = document.getElementById("galleryContainer");
+        thumbnailsList.innerHTML = "";
+
+        images.forEach((imageUrl, index) => {
+          const imgNum = index + 1;
+
+          // Create thumbnail
+          const li = document.createElement("li");
+          const link = document.createElement("a");
+          link.href = `#img_${imgNum}`;
+          const img = document.createElement("img");
+          img.src = imageUrl;
+          img.alt = `Gallery Item ${imgNum}`;
+          img.loading = "lazy";
+          link.appendChild(img);
+          li.appendChild(link);
+          thumbnailsList.appendChild(li);
+
+          // Create lightbox
+          const lightbox = document.createElement("a");
+          lightbox.href = `#_${imgNum}`;
+          lightbox.className = "lightbox trans";
+          lightbox.id = `img_${imgNum}`;
+          const lightboxImg = document.createElement("img");
+          lightboxImg.src = imageUrl;
+          lightboxImg.alt = `Gallery Item ${imgNum} Full`;
+          lightbox.appendChild(lightboxImg);
+          galleryContainer.appendChild(lightbox);
+        });
+      }
+
+      // Load gallery on page load
+      document.addEventListener("DOMContentLoaded", function () {
+        loadGallery(galleryImages);
+      });
+    </script>
+  </body>
+</html>
